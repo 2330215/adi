@@ -18,6 +18,9 @@
     --blue: #4488ff;
     --blue-soft: rgba(68,136,255,0.12);
     --blue-border: rgba(68,136,255,0.35);
+    --yellow: #f5c542;
+    --yellow-soft: rgba(245,197,66,0.12);
+    --yellow-border: rgba(245,197,66,0.35);
     --border: rgba(255,255,255,0.09);
     --green: #43d9a2;
   }
@@ -58,14 +61,21 @@
   }
   .team-card.red { background: var(--red-soft); border-color: var(--red-border); }
   .team-card.blue { background: var(--blue-soft); border-color: var(--blue-border); }
+  .team-card.yellow { background: var(--yellow-soft); border-color: var(--yellow-border); }
   .team-card:hover { transform: translateY(-5px); }
   .team-card.red:hover { border-color: var(--red); }
   .team-card.blue:hover { border-color: var(--blue); }
+  .team-card.yellow:hover { border-color: var(--yellow); }
   .team-icon { font-size: 3rem; }
   .team-card h3 { font-size: 1.05rem; font-weight: 700; }
   .team-card.red h3 { color: var(--red); }
   .team-card.blue h3 { color: var(--blue); }
+  .team-card.yellow h3 { color: var(--yellow); }
   .team-card small { font-size: 0.75rem; color: var(--text2); line-height: 1.5; }
+  .team-card.selected-team { transform: translateY(-6px) scale(1.04); }
+  .team-card.selected-team.red { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-soft); }
+  .team-card.selected-team.blue { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+  .team-card.selected-team.yellow { border-color: var(--yellow); box-shadow: 0 0 0 3px var(--yellow-soft); }
 
   /* ── PICK SCREEN ── */
   #pickScreen { max-width: 920px; margin: 0 auto; padding: 26px 20px; }
@@ -76,6 +86,7 @@
   }
   .side-tag.red { background: var(--red-soft); color: var(--red); border: 1px solid var(--red-border); }
   .side-tag.blue { background: var(--blue-soft); color: var(--blue); border: 1px solid var(--blue-border); }
+  .side-tag.yellow { background: var(--yellow-soft); color: var(--yellow); border: 1px solid var(--yellow-border); }
   .pick-header h2 { font-size: 1.25rem; margin-bottom: 5px; }
   .pick-header p { color: var(--text2); font-size: 0.84rem; }
 
@@ -93,8 +104,10 @@
   .pick-card:hover { transform: translateY(-3px); }
   .pick-card.red:hover { border-color: var(--red); }
   .pick-card.blue:hover { border-color: var(--blue); }
+  .pick-card.yellow:hover { border-color: var(--yellow); }
   .pick-card.selected.red { border-color: var(--red); background: var(--red-soft); box-shadow: 0 0 0 2px var(--red); }
   .pick-card.selected.blue { border-color: var(--blue); background: var(--blue-soft); box-shadow: 0 0 0 2px var(--blue); }
+  .pick-card.selected.yellow { border-color: var(--yellow); background: var(--yellow-soft); box-shadow: 0 0 0 2px var(--yellow); }
   .pick-card .pc-img { width: 100%; height: 86px; overflow: hidden; background: var(--surface2); display: flex; align-items: center; justify-content: center; }
   .pick-card .pc-img img { width: 100%; height: 100%; object-fit: cover; }
   .pick-card .pc-name { font-size: 0.74rem; font-weight: 600; padding: 6px 4px; text-align: center; }
@@ -137,6 +150,7 @@
   }
   .board-card.red-opp:hover:not(.out) { border-color: var(--red); }
   .board-card.blue-opp:hover:not(.out) { border-color: var(--blue); }
+  .board-card.yellow-opp:hover:not(.out) { border-color: var(--yellow); }
   .board-card.out { opacity: 0.16; filter: grayscale(1); border-color: transparent !important; cursor: default; }
   .board-card .bc-img { width: 100%; height: 84px; overflow: hidden; background: var(--surface2); display: flex; align-items: center; justify-content: center; }
   .board-card .bc-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -185,8 +199,10 @@
   .gcard:hover:not(.gcard-out) { transform: translateY(-3px) scale(1.03); }
   .gcard.red-opp:hover:not(.gcard-out) { border-color: var(--red); box-shadow: 0 4px 14px rgba(232,68,68,0.2); }
   .gcard.blue-opp:hover:not(.gcard-out) { border-color: var(--blue); box-shadow: 0 4px 14px rgba(68,136,255,0.2); }
+  .gcard.yellow-opp:hover:not(.gcard-out) { border-color: var(--yellow); box-shadow: 0 4px 14px rgba(245,197,66,0.2); }
   .gcard.selected-guess.red-opp { border-color: var(--red); background: var(--red-soft); box-shadow: 0 0 0 2.5px var(--red), 0 6px 20px rgba(232,68,68,0.3); transform: translateY(-4px) scale(1.05); }
   .gcard.selected-guess.blue-opp { border-color: var(--blue); background: var(--blue-soft); box-shadow: 0 0 0 2.5px var(--blue), 0 6px 20px rgba(68,136,255,0.3); transform: translateY(-4px) scale(1.05); }
+  .gcard.selected-guess.yellow-opp { border-color: var(--yellow); background: var(--yellow-soft); box-shadow: 0 0 0 2.5px var(--yellow), 0 6px 20px rgba(245,197,66,0.3); transform: translateY(-4px) scale(1.05); }
   .gcard.gcard-out { opacity: 0.22; filter: grayscale(1); cursor: default; }
   .gcard .gc-img { width: 52px; height: 52px; border-radius: 8px; overflow: hidden; background: var(--bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .gcard .gc-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -243,23 +259,42 @@
 
 <!-- ══════ 1: ELEGIR EQUIPO ══════ -->
 <div id="teamScreen" class="screen active">
-  <div style="max-width:560px;margin:0 auto;padding:52px 20px;text-align:center;">
+  <div style="max-width:620px;margin:0 auto;padding:48px 20px;text-align:center;">
     <h2 style="font-size:1.75rem;margin-bottom:10px;">¿De qué lado juegas?</h2>
-    <p style="color:var(--text2);font-size:0.88rem;margin-bottom:42px;line-height:1.65;">
-      Cada jugador abre el archivo en su propio dispositivo y elige un color.<br>
-      Tu tablero mostrará los personajes del color <strong>contrario</strong>.
+    <p style="color:var(--text2);font-size:0.88rem;margin-bottom:36px;line-height:1.65;">
+      Elige tu equipo y luego elige contra quién vas a jugar.<br>
+      Tu tablero mostrará los personajes del equipo <strong>contrario</strong>.
     </p>
-    <div class="team-row">
-      <div class="team-card red" onclick="chooseTeam('red')">
-        <div class="team-icon">🔴</div>
-        <h3>Equipo Rojo</h3>
-        <small>Tu personaje secreto es rojo.<br>Adivinarás los azules del oponente.</small>
+
+    <!-- PASO 1: elige tu equipo -->
+    <div style="margin-bottom:10px;">
+      <p style="font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:18px;">Paso 1 — Tu equipo</p>
+      <div class="team-row" id="myTeamRow">
+        <div class="team-card red" id="tc-red" onclick="selectMyTeam('red')">
+          <div class="team-icon">🔴</div>
+          <h3>Equipo Rojo</h3>
+          <small>Tus personajes secretos son los rojos.</small>
+        </div>
+        <div class="team-card blue" id="tc-blue" onclick="selectMyTeam('blue')">
+          <div class="team-icon">🔵</div>
+          <h3>Equipo Azul</h3>
+          <small>Tus personajes secretos son los azules.</small>
+        </div>
+        <div class="team-card yellow" id="tc-yellow" onclick="selectMyTeam('yellow')">
+          <div class="team-icon">🟡</div>
+          <h3>Equipo Amarillo</h3>
+          <small>Tus personajes secretos son los amarillos.</small>
+        </div>
       </div>
-      <div class="team-card blue" onclick="chooseTeam('blue')">
-        <div class="team-icon">🔵</div>
-        <h3>Equipo Azul</h3>
-        <small>Tu personaje secreto es azul.<br>Adivinarás los rojos del oponente.</small>
-      </div>
+    </div>
+
+    <!-- PASO 2: elige rival (aparece después) -->
+    <div id="oppStep" style="display:none;margin-top:36px;">
+      <p style="font-size:0.78rem;font-weight:700;letter-spacing:1px;color:var(--text2);text-transform:uppercase;margin-bottom:18px;">Paso 2 — ¿Contra quién juegas?</p>
+      <div class="team-row" id="oppTeamRow"></div>
+      <button class="btn btn-green" id="btnStartPick" onclick="confirmTeams()" disabled style="margin-top:28px;padding:11px 32px;font-size:0.92rem;">
+        Continuar →
+      </button>
     </div>
   </div>
 </div>
@@ -359,68 +394,99 @@
            déjalo '' para usar el emoji como avatar
    emoji → se muestra cuando img está vacío
    ══════════════════════════════════════════════════════ */
-
 const RED_CHARS = [
-  { name: 'Xiko',  img: 'imagenes/xiko.png'},
-  { name: 'Tamal',  img: 'imagenes/tamal.png', emoji: '😎' },
-  { name: 'Fis trap',  img: 'imagenes/fismalo.png', emoji: '🤩' },
-  { name: 'Akela',  img: 'imagenes/akela.png', emoji: '🥸' },
-  { name: 'Harrow',  img: 'imagenes/harrow.png', emoji: '😇' },
-  { name: 'Curi Crucificado',  img: 'imagenes/curicruz.png', emoji: '🤓' },
-  { name: 'Grinder',  img: 'imagenes/grinder.png', emoji: '😋' },
-  { name: 'Escuadrita awards',  img: 'imagenes/escuadrita.png', emoji: '🧐' },
-  { name: 'jane Doe',  img: 'imagenes/jane.png', emoji: '🤠' },
-  { name: 'Frask', img: 'imagenes/frask.png', emoji: '👻' },
-  { name: 'Shaggy', img: 'imagenes/shaggy.png', emoji: '🦊' },
-  { name: 'Esa imagen de la cq', img: 'imagenes/cq.png', emoji: '🐼' },
-  { name: 'La mimi', img: 'imagenes/lamimi.png', emoji: '🐸' },
-  { name: 'Pollos Sinaloas', img: 'imagenes/pollos.png', emoji: '🦁' },
+  { name: 'Peridot', img: 'imagenes/peridot.png', emoji: '💫' },
+  { name: 'Fis trap', img: 'imagenes/fismalo.png', emoji: '🤩' },
+  { name: 'Player', img: 'imagenes/player.png', emoji: '🦅' },
+  { name: 'Tora', img: 'imagenes/tora.png', emoji: '🥷' },
+  { name: 'Akela', img: 'imagenes/akela.png', emoji: '🥸' },
+  { name: 'Flor', img: 'imagenes/flor.png', emoji: '🌙' },
+  { name: 'Schlat', img: 'imagenes/schlat.png', emoji: '🐋' },
+  { name: 'Ya llegaron las pipshash', img: 'imagenes/pipsas.png', emoji: '🦈' },
   { name: 'Godzilla', img: 'imagenes/godzilla.png', emoji: '🐯' },
-  { name: 'El pene de dylan', img: 'imagenes/dylanpene.png', emoji: '🐧' },
-  { name: 'San Luis Potosi', img: 'imagenes/sanluis.png', emoji: '🦋' },
-  { name: 'El incidentoya', img: 'imagenes/elincidentoya.png', emoji: '🐙' },
-  { name: 'Snake', img: 'imagenes/snake.png', emoji: '🦄' },
-  { name: 'Nachitodvc', img: 'imagenes/nachito.png', emoji: '🐲' },
-  { name: 'Null', img: 'imagenes/null.png', emoji: '🌵' },
-  { name: 'Lu', img: 'imagenes/lu.png', emoji: '🍄' },
-  { name: 'Un momo que me dijo fis que pusiera', img: 'imagenes/momo.png', emoji: '🌋' },
-  { name: 'El chico que se parece mucho a pomni', img: 'imagenes/pomni.png', emoji: '⚡' },
+  { name: 'El cucazo', img: 'imagenes/elcucazo.png', emoji: '❄️' },
+  { name: 'Grinder', img: 'imagenes/grinder.png', emoji: '😋' },
+  { name: 'Amanda', img: 'imagenes/amanda.png', emoji: '🦉' },
+  { name: 'Dylan', img: 'imagenes/dylan.png', emoji: '🤖' },
+  { name: 'La mimi', img: 'imagenes/lamimi.png', emoji: '🐸' },
+  { name: 'Vee', img: 'imagenes/vee.png', emoji: '🧟' },
+  { name: 'Pingachu', img: 'imagenes/pingachu.png', emoji: '🧌' },
+  { name: 'Stiglitz', img: 'imagenes/stiglitz.png', emoji: '🧚' },
+  { name: 'Homelo Chino', img: 'imagenes/omelo.png', emoji: '🌊' },
+  { name: 'Frask', img: 'imagenes/frask.png', emoji: '👻' },
+  { name: 'El 911', img: 'imagenes/911.png', emoji: '💫' },
+  { name: 'Los del gas', img: 'imagenes/losdelgas.png', emoji: '🧞' },
+  { name: 'Escuadrita awards', img: 'imagenes/escuadrita.png', emoji: '🧐' },
+  { name: 'Carnage', img: 'imagenes/carnage.png', emoji: '🧙' },
+  { name: 'Bully Bully Sahur', img: 'imagenes/bully.png', emoji: '❄️' },
+  { name: 'Xiko', img: 'imagenes/xiko.png' },
+  { name: 'Carlitos Kirkj', img: 'imagenes/carlos.png', emoji: '🐬' },
 ];
 
 const BLUE_CHARS = [
-  { name: 'HonneyBLS',  img: 'imagenes/honney.png', emoji: '😈' },
-  { name: 'Dylan',  img: 'imagenes/dylan.png', emoji: '🤖' },
-  { name: 'Fis Sure',  img: 'imagenes/fis.png', emoji: '👽' },
-  { name: 'Osita',  img: 'imagenes/osita.png', emoji: '🎃' },
-  { name: 'Momos Corp',  img: 'imagenes/momoscorp.png', emoji: '🧟' },
-  { name: 'Manus',  img: 'imagenes/manus.png', emoji: '🧛' },
-  { name: 'Emma',  img: 'imagenes/emma.png', emoji: '🧜' },
-  { name: 'Stiglitz',  img: 'imagenes/stiglitz.png', emoji: '🧚' },
-  { name: 'Carnage',  img: 'imagenes/carnage.png', emoji: '🧙' },
-  { name: 'Tora', img: 'imagenes/tora.png', emoji: '🥷' },
-  { name: 'Stress', img: 'imagenes/stress.png', emoji: '🧝' },
-  { name: 'Tamal', img: 'imagenes/tamal.png', emoji: '🧞' },
-  { name: 'El groomer de la escuadra', img: 'imagenes/grumer.png', emoji: '🧌' },
-  { name: 'El tipo que dice me lo voy a coger', img: 'imagenes/melovoy.png', emoji: '🦸' },
-  { name: 'Samuh', img: 'imagenes/samuh.png', emoji: '🦹' },
+  { name: 'Emma', img: 'imagenes/emma.png', emoji: '🧜' },
+  { name: 'Pollos Sinaloas', img: 'imagenes/pollos.png', emoji: '🦁' },
+  { name: 'Nishina Flower fumeta', img: 'imagenes/flower.png', emoji: '💫' },
+  { name: 'Snake', img: 'imagenes/snake.png', emoji: '🦄' },
+  { name: 'Momos Corp', img: 'imagenes/momoscorp.png', emoji: '🧟' },
+  { name: 'Geno el del fornait', img: 'imagenes/geno.png', emoji: '🥷' },
+  { name: 'El medio hermano del inservible', img: 'imagenes/nose.png', emoji: '😈' },
+  { name: 'Nachitodvc', img: 'imagenes/nachito.png', emoji: '🐲' },
   { name: 'La gata del VOTV', img: 'imagenes/gatalol.png', emoji: '🐬' },
-  { name: 'la coneja', img: 'imagenes/coneja.png', emoji: '🦈' },
-  { name: 'Tudi', img: 'imagenes/tui.png', emoji: '🐋' },
-  { name: 'Player', img: 'imagenes/player.png', emoji: '🦅' },
-  { name: 'Sourder', img: 'imagenes/sourder.png', emoji: '🦉' },
+  { name: 'Mario Castañeda', img: 'imagenes/mario.png', emoji: '🌙' },
   { name: 'El negro ', img: 'imagenes/elnegro.png', emoji: '🌊' },
-  { name: 'Flor', img: 'imagenes/flor.png', emoji: '🌙' },
-  { name: 'El cucazo', img: 'imagenes/elcucazo.png', emoji: '❄️' },
-  { name: 'Chocolat', img: 'imagenes/chocolat.png', emoji: '💫' },
+  { name: 'Shaggy', img: 'imagenes/shaggy.png', emoji: '🦊' },
+  { name: 'HonneyBLS', img: 'imagenes/honney.png', emoji: '😈' },
+  { name: 'Ya no me crecio la verga :c', img: 'imagenes/dou.png', emoji: '🧙' },
+  { name: 'Tudi', img: 'imagenes/tui.png', emoji: '🐋' },
+  { name: 'Te recuerdo que tiene un niño adentro...', img: 'imagenes/otro.png', emoji: '💫' },
+  { name: 'Osita', img: 'imagenes/osita.png', emoji: '🎃' },
+  { name: 'Perla de splatoon', img: 'imagenes/perla.png', emoji: '🦸' },
+  { name: 'Lu', img: 'imagenes/lu.png', emoji: '🍄' },
+  { name: 'San Luis Potosi', img: 'imagenes/sanluis.png', emoji: '🦋' },
+  { name: 'F Time', img: 'imagenes/ftime.png', emoji: '💫' },
+  { name: 'La grande combinación', img: 'imagenes/grande.png', emoji: '🧝' },
+  { name: 'El incidentoya', img: 'imagenes/elincidentoya.png', emoji: '🐙' },
+  { name: 'Null', img: 'imagenes/null.png', emoji: '🌵' },
+  { name: 'Stress', img: 'imagenes/stress.png', emoji: '🧝' },
+  { name: 'Carmine', img: 'imagenes/carmine.png', emoji: '🧛' },
 ];
 
+const YELLOW_CHARS = [
+  { name: 'Sourder', img: 'imagenes/sourder.png', emoji: '🦉' },
+  { name: 'Fis Sure', img: 'imagenes/fis.png', emoji: '👽' },
+  { name: 'Tamal', img: 'imagenes/tamal.png', emoji: '😎' },
+  { name: 'Joseny', img: 'imagenes/juan.png', emoji: '🤖' },
+  { name: 'El pene de dylan', img: 'imagenes/dylanpene.png', emoji: '🐧' },
+  { name: 'Momos Corp', img: 'imagenes/manus.png', emoji: '🧛' },
+  { name: 'Una rica piña', img: 'imagenes/unarica.png', emoji: '🧚' },
+  { name: 'Chocolat', img: 'imagenes/chocolat.png', emoji: '💫' },
+  { name: 'Cubo de tungsteno', img: 'imagenes/cubo.png', emoji: '🧜' },
+  { name: 'Samuh', img: 'imagenes/samuh.png', emoji: '🦹' },
+  { name: 'Excalibur toilet', img: 'imagenes/toilet.png', emoji: '🦅' },
+  { name: 'Curi Crucificado', img: 'imagenes/curicruz.png', emoji: '🤓' },
+  { name: 'Dee', img: 'imagenes/dee.png', emoji: '👽' },
+  { name: 'El tipo que dice me lo voy a coger', img: 'imagenes/melovoy.png', emoji: '🦸' },
+  { name: 'El chico que se parece mucho a pomni', img: 'imagenes/pomni.png', emoji: '⚡' },
+  { name: 'jane Doe', img: 'imagenes/jane.png', emoji: '🤠' },
+  { name: 'El groomer de la escuadra', img: 'imagenes/grumer.png', emoji: '🧌' },
+  { name: 'Tamal', img: 'imagenes/tamal.png', emoji: '🧞' },
+  { name: 'Esa imagen de la cq', img: 'imagenes/cq.png', emoji: '🐼' },
+  { name: 'Harrow', img: 'imagenes/harrow.png', emoji: '😇' },
+  { name: 'Totoya/Curi', img: 'imagenes/Totoya.png', emoji: '💫' },
+  { name: 'Un momo que me dijo fis que pusiera', img: 'imagenes/momo.png', emoji: '🌋' },
+  { name: 'El Nieto de Capulina', img: 'imagenes/capunieto.png', emoji: '💫' },
+  { name: 'Las preguntas que le hacen a los nuevos', img: 'imagenes/preguntas.png', emoji: '🎃' },
+  { name: 'la coneja', img: 'imagenes/coneja.png', emoji: '🦈' },
+  { name: 'Cubo de tungsteno', img: 'imagenes/cubo.png', emoji: '🧜' },
+];
 /* ══════════════════════════════════════════════════════
    ▲▲▲  FIN DE CONFIGURACIÓN  ▲▲▲
    ══════════════════════════════════════════════════════ */
 
 // ── STATE ──────────────────────────────────────────────
-let myTeam = '';        // 'red' | 'blue'
-let oppTeam = '';       // opposite
+let myTeam = '';        // 'red' | 'blue' | 'yellow'
+let oppTeam = '';       // chosen opponent team
 let myChars = [];       // my secret candidates
 let oppChars = [];      // opponent's deck (what I see on the board)
 let secretIdx = null;   // index into myChars
@@ -429,12 +495,49 @@ let selectedGuess = null;    // index into oppChars currently selected
 let wrongGuesses = new Set(); // indices I guessed wrong
 let guessSearchQuery = '';   // current filter in guess panel
 
-// ── STEP 1: CHOOSE TEAM ────────────────────────────────
-function chooseTeam(color) {
-  myTeam   = color;
-  oppTeam  = color === 'red' ? 'blue' : 'red';
-  myChars  = color === 'red' ? RED_CHARS  : BLUE_CHARS;
-  oppChars = color === 'red' ? BLUE_CHARS : RED_CHARS;
+const TEAM_CHARS = { red: RED_CHARS, blue: BLUE_CHARS, yellow: YELLOW_CHARS };
+const TEAM_LABEL = { red: 'Equipo Rojo 🔴', blue: 'Equipo Azul 🔵', yellow: 'Equipo Amarillo 🟡' };
+const TEAM_EMOJI = { red: '🔴', blue: '🔵', yellow: '🟡' };
+
+// ── STEP 1a: SELECT MY TEAM ────────────────────────────
+function selectMyTeam(color) {
+  myTeam = color;
+  // highlight selected
+  document.querySelectorAll('#myTeamRow .team-card').forEach(c => c.classList.remove('selected-team'));
+  document.getElementById(`tc-${color}`).classList.add('selected-team');
+
+  // build opponent cards (the other two teams)
+  const oppRow = document.getElementById('oppTeamRow');
+  oppRow.innerHTML = '';
+  oppTeam = '';
+  document.getElementById('btnStartPick').disabled = true;
+
+  const others = ['red', 'blue', 'yellow'].filter(t => t !== color);
+  others.forEach(t => {
+    const card = document.createElement('div');
+    card.className = `team-card ${t}`;
+    card.id = `opp-${t}`;
+    card.innerHTML = `<div class="team-icon">${TEAM_EMOJI[t]}</div><h3>${TEAM_LABEL[t].replace(/ [🔴🔵🟡]/,'')}</h3><small>Adivinarás sus personajes en el tablero.</small>`;
+    card.onclick = () => selectOppTeam(t);
+    oppRow.appendChild(card);
+  });
+
+  document.getElementById('oppStep').style.display = '';
+}
+
+// ── STEP 1b: SELECT OPPONENT TEAM ─────────────────────
+function selectOppTeam(color) {
+  oppTeam = color;
+  document.querySelectorAll('#oppTeamRow .team-card').forEach(c => c.classList.remove('selected-team'));
+  document.getElementById(`opp-${color}`).classList.add('selected-team');
+  document.getElementById('btnStartPick').disabled = false;
+}
+
+// ── STEP 1c: CONFIRM AND PROCEED ──────────────────────
+function confirmTeams() {
+  if (!myTeam || !oppTeam) return;
+  myChars  = TEAM_CHARS[myTeam];
+  oppChars = TEAM_CHARS[oppTeam];
   showPickScreen();
 }
 
@@ -442,13 +545,14 @@ function chooseTeam(color) {
 function showPickScreen() {
   const tag = document.getElementById('pickTag');
   tag.className = `side-tag ${myTeam}`;
-  tag.textContent = myTeam === 'red' ? 'Equipo Rojo 🔴' : 'Equipo Azul 🔵';
+  tag.textContent = TEAM_LABEL[myTeam];
 
   document.getElementById('pickDesc').textContent =
-    `Estos son tus 24 personajes. Elige uno como tu personaje secreto — tu oponente intentará adivinarlo.`;
+    `Estos son tus personajes. Elige uno como tu personaje secreto — tu oponente intentará adivinarlo.`;
 
   const btn = document.getElementById('btnConfirm');
-  btn.className = `btn btn-${myTeam}`;
+  btn.className = `btn btn-${myTeam === 'yellow' ? 'ghost' : myTeam}`;
+  if (myTeam === 'yellow') btn.style.background = 'var(--yellow)'; else btn.style.background = '';
   btn.disabled = true;
   secretIdx = null;
 
@@ -484,7 +588,7 @@ function startGame() {
   // team tag
   const gt = document.getElementById('gameTag');
   gt.className = `side-tag ${myTeam}`;
-  gt.textContent = myTeam === 'red' ? 'Equipo Rojo 🔴' : 'Equipo Azul 🔵';
+  gt.textContent = TEAM_LABEL[myTeam];
 
   // secret pill
   const secret = myChars[secretIdx];
@@ -493,7 +597,8 @@ function startGame() {
     ? `<img src="${secret.img}" alt="${secret.name}">`
     : `<span style="font-size:1.3rem">${secret.emoji}</span>`;
   document.getElementById('spName').textContent = secret.name;
-  document.getElementById('spName').style.color = myTeam === 'red' ? 'var(--red)' : 'var(--blue)';
+  const teamColor = myTeam === 'red' ? 'var(--red)' : myTeam === 'blue' ? 'var(--blue)' : 'var(--yellow)';
+  document.getElementById('spName').style.color = teamColor;
 
   renderBoard();
   guessSearchQuery = '';
@@ -647,6 +752,11 @@ function goMenu() {
   document.getElementById('guessModal').classList.remove('open');
   document.getElementById('btnMenu').style.display = 'none';
   document.getElementById('btnRestart').style.display = 'none';
+  // reset team selection
+  myTeam = ''; oppTeam = '';
+  document.querySelectorAll('#myTeamRow .team-card').forEach(c => c.classList.remove('selected-team'));
+  document.getElementById('oppStep').style.display = 'none';
+  document.getElementById('btnStartPick').disabled = true;
   showScreen('teamScreen');
 }
 
