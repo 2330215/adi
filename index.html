@@ -457,7 +457,7 @@ const BLUE_CHARS = [
   { name: 'Taco de verga', img: 'imagenes/caca.png' },
   { name: 'Y EL PIKO YAAAAA', img: 'imagenes/cama.png' },
   { name: 'Cigarros Camel', img: 'imagenes/camel.png' },
-  { name: 'El patriota', img: 'imagenes/curi.png' },
+  { name: 'El patriota', img: 'imagenes/elpatriota.png' },
 ];
 
 const YELLOW_CHARS = [
@@ -502,7 +502,7 @@ const GREEN_CHARS = [
   { name: 'Mono Mono Sahur', img: 'imagenes/mono.png' },
   { name: 'Moshi Moshi', img: 'imagenes/moshi.png' },
   { name: 'Ninja cumeado', img: 'imagenes/ninja.png' },
-  { name: 'Saddam Hussein', img: 'imagenes/no.png' },
+  { name: 'Saddam Hussein', img: 'imagenes/saddam.png' },
   { name: 'La arrolladora banda el limon', img: 'imagenes/nose2.png' },
   { name: 'Xiko diciendo nyarambolas', img: 'imagenes/nyan.png' },
   { name: 'Otro momo que me dijo Fis que pusiera', img: 'imagenes/otromomo.png' },
@@ -520,10 +520,10 @@ const GREEN_CHARS = [
   { name: 'Triple T', img: 'imagenes/tung.png' },
   { name: 'Ahora si viene lo chido', img: 'imagenes/wawa.png' },
   { name: 'Yo viendo cuanto cuesta el kilo de tortillas', img: 'imagenes/Yo_viendo.png' },
-  { name: 'Momos Corp 2', img: 'imagenes/momo2.png' },
+  { name: 'Tudi miona', img: 'imagenes/tudimiona.png' },
   { name: 'Ovulando sin mi nena?', img: 'imagenes/ovulando.png' },
-  { name: 'Momos Corp OG', img: 'imagenes/momoscorp.png' },
-  { name: 'Una fumo saludando', img: 'imagenes/fumo.png' },
+  { name: 'Escuadrita bonita First Gen', img: 'imagenes/escuadritabonitab.png' },
+  { name: 'Una fumo saludando', img: 'imagenes/fumo.mp4', isVideo: true },
 ];
 
 // ── STATE ──
@@ -790,11 +790,13 @@ function goMenu() {
 
 // ── HELPERS ──
 function avatarHTML(ch, h) {
+  if (ch.isVideo) return `<div class="pc-img" style="height:${h}px"><video src="${ch.img}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video></div>`;
   return ch.img
     ? `<div class="pc-img" style="height:${h}px"><img src="${ch.img}" alt="${ch.name}"></div>`
     : `<div class="pc-img" style="height:${h}px"><span style="font-size:2.4rem">❓</span></div>`;
 }
 function innerAvatar(ch) {
+  if (ch.isVideo) return `<video src="${ch.img}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`;
   return ch.img ? `<img src="${ch.img}" alt="${ch.name}">` : `<span style="font-size:2.2rem">❓</span>`;
 }
 function showScreen(id) {
